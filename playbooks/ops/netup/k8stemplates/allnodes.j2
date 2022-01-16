@@ -89,7 +89,7 @@ spec:
           secretName: "{{ nodename }}-secret"
       containers:
       - name: {{ nodename }}
-        image: hyperledger/fabric-ca:1.4
+        image: chinyati/fabric-ca:arm64-1.4.7
         imagePullPolicy: IfNotPresent
         env:
         - { name: "FABRIC_CA_HOME", value: "/etc/hyperledger/fabric-ca-server" }
@@ -252,7 +252,7 @@ spec:
           - { mountPath: "/dataroot/msp", name: "{{ nodename }}-msp" }
       containers:
       - name: {{ nodename }}
-        image: hyperledger/fabric-orderer:{{ fabric.release }}
+        image: chinyati/fabric-orderer:arm64-2.1.0
         imagePullPolicy: IfNotPresent
         env:
         - { name: "ORDERER_GENERAL_LISTENADDRESS",             value: "0.0.0.0" }
@@ -363,7 +363,7 @@ spec:
                         - "ok"
       containers:
       - name: couchdb
-        image: hyperledger/fabric-couchdb:latest
+        image: chinyati/fabric-couchdb:arm64-0.4.20
         imagePullPolicy: IfNotPresent
         env:
         - { name: "COUCHDB_USER",     value: "admin"   }
@@ -535,7 +535,7 @@ spec:
         - name: rundind
           mountPath: /var/run
       - name: peer
-        image: hyperledger/fabric-peer:{{ fabric.release }}
+        image: chinyati/fabric-peer:arm64-2.1.0
         imagePullPolicy: IfNotPresent
         securityContext:
           privileged: true        

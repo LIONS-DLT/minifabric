@@ -63,7 +63,7 @@
     docker run --rm --name tools
     -v /var/run/:/host/var/run
     -v {{ hostroot}}/vars:/etc/hyperledger/fabric
-    hyperledger/fabric-tools:{{ fabric.release }} /etc/hyperledger/fabric/run/certtxgen.sh
+    chinyati/fabric-tools:arm64-2.1.0 /etc/hyperledger/fabric/run/certtxgen.sh
 
 - name: Upload gensis block for orderers
   when: ISK8S == true and (ordererorgs|length > 0)
